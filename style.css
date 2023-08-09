@@ -1,0 +1,24 @@
+/* TESTING ONLY */
+/* NOT FINAL STYLES */
+
+.grid-item{
+    /* height: 50px;
+    width: 50px; */
+    background-color: beige;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#grid-container{
+    width: 400px;
+    aspect-ratio: 1/1;
+    /* width: fit-content; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
