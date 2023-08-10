@@ -41,7 +41,7 @@ const game = (() => {
 
     var playerSign = "";
     if (player === 1) {
-      playerSign = "X";
+      playerSign = "✕";
       xPositions.push(position);
     } else {
       playerSign = "O";
@@ -118,6 +118,7 @@ const game = (() => {
           p.textContent = "O won";
           break;
       }
+      overlay.appendChild(p);
     }
     console.log(blocksFilled);
     if (blocksFilled > 8) {
