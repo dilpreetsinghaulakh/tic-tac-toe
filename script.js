@@ -42,10 +42,17 @@ const game = (() => {
 
     var playerSign = "";
     if (player === 1) {
-      playerSign = "✕";
+      playerSign = `<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="27.9912" y="45.6689" width="25" height="257.859" transform="rotate(-45 27.9912 45.6689)" fill="black"/>
+      <rect x="211.02" y="28" width="24" height="258.826" transform="rotate(45 211.02 28)" fill="black"/>
+      </svg>
+      `;
       xPositions.push(position);
     } else {
-      playerSign = "O";
+      playerSign = `<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="128" cy="128" r="87.5" stroke="black" stroke-width="25"/>
+      </svg>
+      `;
       oPositions.push(position);
     }
 
@@ -75,9 +82,7 @@ const game = (() => {
         if (!gridItem.innerHTML) {
           blocksFilled++;
           let position = parseInt(gridItem.id, 10);
-          const playerSign = document.createElement("p");
-          playerSign.textContent = onPlayerInput(position).playerSign;
-          gridItem.appendChild(playerSign);
+          gridItem.innerHTML = onPlayerInput(position).playerSign;
         }
       });
     }
@@ -122,8 +127,7 @@ const game = (() => {
       }
       overlay.appendChild(p);
     }
-    console.log(blocksFilled);
-    if (blocksFilled > 8) {
+    else if (blocksFilled > 8) {
       p.textContent = "Draw";
       overlay.appendChild(p);
     }
