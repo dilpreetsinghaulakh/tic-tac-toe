@@ -7,6 +7,7 @@
 const gameBoard = (() => {
   var gameBoardArray = [];
 
+  // Mostly for future addition of algorithm based player vs computer
   const newGame = () => {
     for (let i = 0; i < 9; i++) {
       gameBoardArray[i] = "";
@@ -74,8 +75,9 @@ const game = (() => {
         if (!gridItem.innerHTML) {
           blocksFilled++;
           let position = parseInt(gridItem.id, 10);
-          playerSign = onPlayerInput(position).playerSign;
-          gridItem.textContent = playerSign;
+          const playerSign = document.createElement("p");
+          playerSign.textContent = onPlayerInput(position).playerSign;
+          gridItem.appendChild(playerSign);
         }
       });
     }
