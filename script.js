@@ -119,16 +119,17 @@ const game = (() => {
     if (winner) {
       switch (winner) {
         case 1:
-          p.textContent = "X won";
+          p.textContent = "Player X won";
           break;
         case 2:
-          p.textContent = "O won";
+          p.textContent = "Player O won";
           break;
       }
+      overlay.classList.add("active");
       overlay.appendChild(p);
-    }
-    else if (blocksFilled > 8) {
+    } else if (blocksFilled > 8) {
       p.textContent = "Draw";
+      overlay.classList.add("active");
       overlay.appendChild(p);
     }
 
@@ -143,6 +144,7 @@ const game = (() => {
     blocksFilled = 0;
     oPositions = [];
     xPositions = [];
+    overlay.classList.remove("active");
   };
 
   const playGame = () => {
